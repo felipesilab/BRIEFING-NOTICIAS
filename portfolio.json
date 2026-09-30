@@ -1,0 +1,55 @@
+{
+  "as_of": "2026-09-30",
+  "currency": "BRL",
+  "total_brl": 6021.69,
+  "holdings": [
+    {"id": "cdb_bmg", "name": "CDB BMG (2 posições, venc. dez/2026)", "value_brl": 1016.96, "type": "renda fixa privada", "keywords": ["BMG", "Banco BMG"]},
+    {"id": "cdb_bv", "name": "CDB Banco BV (venc. nov/2026)", "value_brl": 105.54, "type": "renda fixa privada", "keywords": ["Banco BV", "Banco Votorantim"]},
+    {"id": "debenture_origem", "name": "Debênture Origem Energia (venc. dez/2035)", "value_brl": 933.49, "type": "crédito privado", "keywords": ["Origem Energia", "energia"]},
+    {"id": "sapr4", "name": "SAPR4", "value_brl": 628.90, "type": "ações Brasil", "keywords": ["SAPR4", "Sanepar", "saneamento"]},
+    {"id": "bova11", "name": "BOVA11", "value_brl": 368.98, "type": "ETF ações Brasil", "keywords": ["BOVA11", "Ibovespa", "bolsa brasileira"]},
+    {"id": "nasd11", "name": "NASD11", "value_brl": 307.72, "type": "ETF ações EUA/tecnologia", "keywords": ["NASD11", "Nasdaq", "tecnologia", "semicondutores"]},
+    {"id": "acwi11", "name": "ACWI11", "value_brl": 208.32, "type": "ETF ações globais", "keywords": ["ACWI11", "ações globais", "mercados globais"]},
+    {"id": "bith11", "name": "BITH11", "value_brl": 390.72, "type": "ETF cripto", "keywords": ["BITH11", "Bitcoin", "cripto", "criptomoedas"]},
+    {"id": "tesouro_selic", "name": "Tesouro Selic (LFT mar/2031)", "value_brl": 1393.36, "type": "título público pós-fixado", "keywords": ["Tesouro Selic", "Selic", "dívida pública"]},
+    {"id": "fundo_ouro", "name": "Trend Ouro FIF", "value_brl": 667.70, "type": "fundo de ouro", "keywords": ["ouro", "gold", "dólar", "geopolítica"]}
+  ],
+  "risk_factors": [
+    {
+      "name": "Juros, inflação e cenário fiscal no Brasil",
+      "holding_ids": ["tesouro_selic", "cdb_bmg", "cdb_bv", "debenture_origem", "bova11", "sapr4"],
+      "keywords": ["Selic", "Copom", "juros", "taxa de juros", "inflação", "Banco Central", "fiscal", "dívida pública", "Tesouro", "real", "câmbio"],
+      "triggers": "Decisões do Copom, inflação, contas públicas e câmbio; podem afetar retorno pós-fixado, custo de capital e preços de renda variável."
+    },
+    {
+      "name": "Crédito privado e risco dos emissores",
+      "holding_ids": ["cdb_bmg", "cdb_bv", "debenture_origem"],
+      "keywords": ["BMG", "Banco BMG", "Banco BV", "Banco Votorantim", "Origem Energia", "crédito", "inadimplência", "default", "calote", "rating", "rebaixamento", "recuperação judicial", "dívida", "debênture", "debenture"],
+      "triggers": "Solvência, classificação de risco, inadimplência, refinanciamento e liquidez dos emissores; CDB e debênture têm riscos e regras distintas."
+    },
+    {
+      "name": "Saneamento, regulação e SAPR4",
+      "holding_ids": ["sapr4"],
+      "keywords": ["SAPR4", "Sanepar", "saneamento", "água", "tarifa de água", "concessão", "regulação do saneamento"],
+      "triggers": "Tarifas, concessões, regulação, investimentos e decisões de governos/órgãos reguladores do setor."
+    },
+    {
+      "name": "Ações globais, tecnologia e câmbio",
+      "holding_ids": ["nasd11", "acwi11"],
+      "keywords": ["NASD11", "ACWI11", "Nasdaq", "tecnologia", "semicondutores", "ações globais", "mercados globais", "Federal Reserve", "Fed", "Treasury yields", "dólar"],
+      "triggers": "Juros dos EUA, resultados e regulação de tecnologia, crescimento global e variação do dólar frente ao real."
+    },
+    {
+      "name": "Criptoativos e Bitcoin",
+      "holding_ids": ["bith11"],
+      "keywords": ["BITH11", "Bitcoin", "cripto", "criptomoedas", "Ethereum", "regulação cripto", "exchange"],
+      "triggers": "Regulação, segurança de plataformas, liquidez e eventos próprios de criptoativos; volatilidade elevada."
+    },
+    {
+      "name": "Ouro, dólar e risco geopolítico",
+      "holding_ids": ["fundo_ouro"],
+      "keywords": ["ouro", "gold", "dólar", "dollar", "geopolítica", "guerra", "sanções", "real yields", "juros reais"],
+      "triggers": "Juros reais, dólar e choques geopolíticos; não selecionar variações pequenas de preço sem catalisador relevante."
+    }
+  ]
+}
