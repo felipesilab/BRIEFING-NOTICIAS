@@ -324,8 +324,8 @@ def send_email(subject: str, body: str) -> None:
     missing = [name for name in required if not os.environ.get(name)]
     if missing:
         raise RuntimeError("Configure no .env ou nos Secrets do Colab: " + ", ".join(missing))
-    sender = os.environ["GMAIL_ADDRESS"]
-    recipient = os.environ.get("EMAIL_TO", sender)
+    sender = os.environ["GMAIL_ADDRESS"].strip()
+    recipient = os.environ.get("EMAIL_TO", "").strip() or sender
     message = EmailMessage()
     message["Subject"] = subject
     message["From"] = sender
@@ -365,7 +365,7 @@ def main() -> int:
             print(error, file=sys.stderr)
         return 1
     send_email(subject, body)
-    print(f"Briefing enviado para {os.environ.get('EMAIL_TO') or os.environ.get('GMAIL_ADDRESS')} ({len(top)} notícias).")
+    print(f"Briefing enviado ao destinatário configurado ({len(top)} notícias).")
     if errors:
         print(f"Aviso: {len(errors)} feed(s) falharam.")
     return 0

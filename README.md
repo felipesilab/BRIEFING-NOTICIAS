@@ -64,6 +64,16 @@ O computador precisa estar ligado e conectado à internet. Se `CRON_TZ` não for
 
 No Agendador de Tarefas, crie uma tarefa diária para 07:00; a ação executa `python` e recebe o caminho completo de `main.py` como argumento. Defina a pasta do projeto como diretório inicial. O computador precisa estar ligado/conectado, e o fuso do Windows deve ser Brasília.
 
+### GitHub Actions
+
+O workflow está em `.github/workflows/briefing.yml` e agenda 10:00 UTC (07:00 em Brasília). Para habilitá-lo, envie o projeto atualizado ao branch padrão do repositório e cadastre em **Settings → Secrets and variables → Actions → New repository secret** os três segredos com estes nomes exatos:
+
+- `GMAIL_ADDRESS`: conta Gmail remetente;
+- `GMAIL_APP_PASSWORD`: senha de app da conta remetente;
+- `EMAIL_TO`: endereço que deve receber o briefing.
+
+O workflow valida os três antes de executar; se `EMAIL_TO` estiver ausente, a execução falha sem mandar a mensagem para o remetente por engano. A ação manual em **Actions → Briefing diário → Run workflow** envia um e-mail real ao endereço `EMAIL_TO`.
+
 ## Manter a carteira atualizada
 
 Após compras, vendas ou alterações relevantes, atualize em `portfolio.json` os valores `value_brl`, os nomes/identificadores e, se necessário, os fatores/termos de risco. A fotografia atual é apenas a data do extrato analisado, não uma consulta automática à XP. Não compartilhe o extrato ou credenciais em repositórios públicos.
