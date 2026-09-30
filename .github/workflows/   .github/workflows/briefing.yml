@@ -1,0 +1,29 @@
+   name: Briefing diário
+
+   on:
+     schedule:
+       - cron: '0 10 * * *'
+     workflow_dispatch:
+
+   permissions:
+     contents: read
+
+   jobs:
+     enviar-briefing:
+       runs-on: ubuntu-latest
+
+       steps:
+         - name: Baixar os arquivos do projeto
+           uses: actions/checkout@v4
+
+         - name: Preparar Python
+           uses: actions/setup-python@v5
+           with:
+             python-version: '3.12'
+
+         - name: Buscar notícias e enviar o briefing
+           run: python main.py
+           env:
+             GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+             GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+   
